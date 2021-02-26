@@ -4,12 +4,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
-@RequestMapping("/rest/check")
+@RequestMapping("/rest/")
 public class HelloResource {
 
-    @GetMapping
-    String checkMethod(){
-        return "hello this is working";
+    @GetMapping(path = "/hello")
+    public Map<String, String> sayHello() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("fulfillmentText", "Hi");
+        return map;
     }
+
 }
